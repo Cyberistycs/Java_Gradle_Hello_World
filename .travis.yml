@@ -9,12 +9,11 @@ matrix:
 
 script: 
   - git config --global push.default simple
-  #- export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
+  - export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
   - gradle clean build
   - gradle dist
   - tar -zcf hello_world_test_reports.tar.gz build/reports
   - tar -zcf hello_world_executable_distributions.tar.gz build/distributions
-
 
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
@@ -22,8 +21,7 @@ before_deploy:
   - export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
   - echo "Just generated GIT_TAG for $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER" >> $TRAVIS_BUILD_DIR/build.txt
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITPERM@github.com/Cyberistycs/Java_Gradle_Hello_World  --tags
-
+  - git push -q https://$GITPERM@github.com/Cyberistycs/Java_Gradle_Hello_World  -tags
   
 deploy:
   provider: releases
