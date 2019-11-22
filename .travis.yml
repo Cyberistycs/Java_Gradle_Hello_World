@@ -1,5 +1,5 @@
 dist: xenial
-
+# add a test comment
 language: java
 install: true
 
@@ -27,7 +27,7 @@ before_deploy:
   
 deploy:
   provider: releases
-  api_key: 
+  api_key:
     secure: $GITPERM
   file: 
     - README.md
@@ -36,4 +36,4 @@ deploy:
   skip_cleanup: true  
   on:
     tags: false
-    all_branches: true
+    all_branches: true  
