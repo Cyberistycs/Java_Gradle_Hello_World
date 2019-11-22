@@ -1,5 +1,5 @@
 dist: xenial
-# add a test comment
+
 language: java
 install: true
 
