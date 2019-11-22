@@ -9,7 +9,7 @@ matrix:
 
 script: 
   - git config --global push.default simple
-  - export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
+  #- export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
   - gradle clean build
   - gradle dist
   - tar -zcf hello_world_test_reports.tar.gz build/reports
